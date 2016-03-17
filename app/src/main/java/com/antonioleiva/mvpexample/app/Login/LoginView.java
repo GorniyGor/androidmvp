@@ -18,6 +18,8 @@
 
 package com.antonioleiva.mvpexample.app.Login;
 
+import android.content.Context;
+
 public interface LoginView {
     void showProgress();
 
@@ -27,5 +29,5 @@ public interface LoginView {
 
     void setPasswordError();
 
-    void navigateToHome();
+    Context getContext();
 }

@@ -18,6 +18,10 @@
 
 package com.antonioleiva.mvpexample.app.Login;
 
+import android.content.Intent;
+
+import com.antonioleiva.mvpexample.app.main.MainActivity;
+
 public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLoginFinishedListener {
 
     private LoginView loginView;
@@ -55,8 +59,13 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     }
 
     @Override public void onSuccess() {
+        navigateToHome();
+    }
+
+    public void navigateToHome() {
         if (loginView != null) {
-            loginView.navigateToHome();
+            Intent i = new Intent(loginView.getContext(), MainActivity.class);
+            loginView.getContext().startActivity(i);
         }
     }
 }

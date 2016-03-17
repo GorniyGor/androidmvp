@@ -19,7 +19,7 @@
 package com.antonioleiva.mvpexample.app.Login;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -69,9 +69,8 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
         password.setError(getString(R.string.password_error));
     }
 
-    @Override public void navigateToHome() {
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+    @Override public Context getContext() {
+        return this;
     }
 
     @Override public void onClick(View v) {
